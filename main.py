@@ -265,7 +265,7 @@ class Battle():
             self.comp_pokemon.experience = max(self.comp_pokemon.experience, collection.pokemons[0].experience)
         if difficulty == 4:
             self.comp_pokemon.experience = max(self.comp_pokemon.experience, self.player_pokemon.experience)
-        self.comp_pokemon.hp = 1
+        #self.comp_pokemon.hp = 1
         print(f'A wild {self.comp_pokemon.name} appeared! (Level {self.comp_pokemon.level})')
 
         while True:
