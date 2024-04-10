@@ -201,7 +201,10 @@ class Battle():
         for index, item in enumerate(collection.items):
             print(f'{index+1}. {item}')
         chosen_item = collection.items[int(input('Type in the number of the item which you wish to use: '))-1]
-        chosen_item.use_item(self.player_pokemon)
+        if isinstance(chosen_item, DamageItem):
+            chosen_item.use_item(self.comp_pokemon)
+        else:
+            chosen_item.use_item(self.player_pokemon)
         del chosen_item
 
     def switch_action(self):
@@ -373,7 +376,7 @@ class DamageItem():
             target_pokemon (class: Pokemon): gives pokemon item will be used on
         '''
         target_pokemon.take_dmg(self.value)
-        print(f'{pokemon.name} took {self.value} damage!')
+        print(f'{target_pokemon.name} took {self.value} damage!')
 
     def __repr__(self):
         return f'{self.value} Damage Item'
